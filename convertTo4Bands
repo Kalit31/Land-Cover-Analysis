@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+NAME=${1}
+
+# R refers to the RED band
+# G refers to the GREEN band
+# B refers to the BLUE band
+# N refers to the NEAR-INFRARED band
+echo "Splitting Bands....."
+gdal_translate -b 2 $NAME B.tif
+gdal_translate -b 3 $NAME G.tif
+gdal_translate -b 4 $NAME R.tif
+gdal_translate -b 8 $NAME N.tif
+
+echo "Splitting Complete!"
+
+echo "Generating BGRN..."
+
+gdal_merge.py -seperate -o $NAME-BGR.tif -co PHOTOMETRIC=MINISBLACK B.tif G.tif R.tif N.tif
+
+echo "Generated BGRN!"
+
+echo "Generating RGBN..."
+
+gdal_merge.py -seperate -o $NAME-RGB.tif -co PHOTOMETRIC=MINISBLACK R.tif G.tif B.tif N.tif
+
+echo "Generated RGBN!"
