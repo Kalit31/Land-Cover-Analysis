@@ -47,3 +47,5 @@ Some of the segmented images over a period of time.
 | ![](images/apr20/out25.jpg) | ![](images/may10/out25.jpg) | ![](images/may15/out25.jpg) | ![](images/may30/out25.jpg) | ![](images/jun03/out25.jpg) | ![](images/jun09/out25.jpg) | ! |
 
 #### For more details about the methodology and results, refer to the [project report](Report.pdf)
+
+Here are the pre-trained weights, so that you do not have to train your model from scratch as it takes a lot many hours to process the complete dataset even on a GPU. ([download weights](https://drive.google.com/file/d/1qlv8o4Uzrd3aYhBLhbwHbHBYO1sCE62S/view?usp=sharing))
