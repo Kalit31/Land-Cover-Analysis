@@ -1,6 +1,6 @@
 # Land-Cover-Analysis
 
-This repository contains the project "Lnad Use/Land Cover change detection in cyclone affected areas using convolutional neural networks" completed at the Indian Institute of Remote Sensing, Dehradun from May 2020 to June 2020. The help in code implementation is taken from [Eye in the Sky](https://github.com/manideep2510/eye-in-the-sky).
+This repository contains the project "Land Use/Land Cover change detection in cyclone affected areas using convolutional neural networks" completed at the Indian Institute of Remote Sensing, Dehradun from May 2020 to June 2020. The help in code implementation is taken from [Eye in the Sky](https://github.com/manideep2510/eye-in-the-sky).
 
 ## Project Objectives
 
