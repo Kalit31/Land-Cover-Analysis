@@ -1,3 +1,4 @@
 /Sentinel-1-SAR:1-band/NumpyArrays/
 /Sentinel-1-SAR:1-band/TrainedModels/trained_model_sar-v2.h5
 /Sentinel-2-MSI-1C:4-bands/TrainedModels/trained_model_3.h5
+**/*.tif.aux.xml
