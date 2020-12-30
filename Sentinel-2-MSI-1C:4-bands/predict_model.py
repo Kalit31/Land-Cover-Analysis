@@ -6,10 +6,10 @@ import numpy as np
 import glob
 from image_processing_functions import *
 from RGBOneHotConv import *
-from unet_model import UNet
+from unet_model import UNet_4Band
 
 # Load model
-model = UNet()
+model = UNet_4Band()
 
 weights_file = "/home/data/IIRS/PS1-Project/src/trained_model.h5"
 
@@ -41,7 +41,7 @@ for k, fname in enumerate(filelist):
     h, w, c = image.shape
     n_h = int(int(h/stride))
     n_w = int(int(w/stride))
-    image = padding(image, w, h, c, crop_size, stride, n_h, n_w)
+    image = padding(image, w, h, crop_size, stride, n_h, n_w, c)
 
     h, w, c = image.shape
 

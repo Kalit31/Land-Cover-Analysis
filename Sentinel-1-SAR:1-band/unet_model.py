@@ -7,10 +7,11 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import tensorflow.keras.backend as K
 
 
-def UNet(shape=(None, None, 4)):
+def UNet_1Band(shape=(None, None, 1)):
 
-    # (h,w,c) ==> number of input channels is fixed = 4
-    # Channels -> Blue, Green, Red, NIR
+    # (h,w,c) ==> number of input channels is fixed = 1
+    # Channels -> VV
+
     # Initialize input
     inputs = Input(shape)
 
@@ -18,29 +19,24 @@ def UNet(shape=(None, None, 4)):
 
     # padding = same -> output same size as input
     # kernel initializer -> initialize starting weights of filter
-
-    # filters = 64, window_size = 3*3
     conv1 = Conv2D(64, 3, activation='relu', padding='same',
                    kernel_initializer='random_normal')(inputs)
     conv1 = Conv2D(64, 3, activation='relu', padding='same',
                    kernel_initializer='random_normal')(conv1)
     conv1 = BatchNormalization()(conv1)
     pool1 = MaxPooling2D(pool_size=(2, 2))(conv1)
-    # filters = 128, window_size = 3*3
     conv2 = Conv2D(128, 3, activation='relu', padding='same',
                    kernel_initializer='random_normal')(pool1)
     conv2 = Conv2D(128, 3, activation='relu', padding='same',
                    kernel_initializer='random_normal')(conv2)
     conv2 = BatchNormalization()(conv2)
     pool2 = MaxPooling2D(pool_size=(2, 2))(conv2)
-    # filters = 256, window_size = 3*3
     conv3 = Conv2D(256, 3, activation='relu', padding='same',
                    kernel_initializer='random_normal')(pool2)
     conv3 = Conv2D(256, 3, activation='relu', padding='same',
                    kernel_initializer='random_normal')(conv3)
     conv3 = BatchNormalization()(conv3)
     pool3 = MaxPooling2D(pool_size=(2, 2))(conv3)
-    # filters = 512, window_size = 3*3
     conv4 = Conv2D(512, 3, activation='relu', padding='same',
                    kernel_initializer='random_normal')(pool3)
     conv4 = Conv2D(512, 3, activation='relu', padding='same',
@@ -51,7 +47,7 @@ def UNet(shape=(None, None, 4)):
     pool4 = MaxPooling2D(pool_size=(2, 2))(drop4)
 
     # Bottle Neck
-    # filters = 1024, window_size = 3*3
+
     conv5 = Conv2D(1024, 3, activation='relu', padding='same',
                    kernel_initializer='random_normal')(pool4)
     conv5 = Conv2D(1024, 3, activation='relu', padding='same',
@@ -100,7 +96,6 @@ def UNet(shape=(None, None, 4)):
     conv9 = BatchNormalization()(conv9)
 
     # Output layer of the U-Net with a softmax activation
-    # 9 filters to generate 9 classes
     conv10 = Conv2D(9, 1, activation='softmax')(conv9)
 
     model = Model(inputs=inputs, outputs=conv10)

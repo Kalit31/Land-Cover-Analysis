@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+NAME=${1}
+
+#Extract 1st band
+
+echo "Splitting Bands....."
+
+gdal_translate -b 1 $NAME $NAME-1
+
+echo "Splitting Complete!"
+
