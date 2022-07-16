@@ -19,3 +19,9 @@ The aim of the project is to train a convolutional neural network model for imag
 * [Sentinel-1-SAR](Sentinel-1-SAR:1-band)  
 
 #### For more details about the methodology and results, refer to the [project report](Report.pdf)
+
+### Regarding datasets:
+* Satellite images were extracted from Google Earth Engine for both the Sentinel-1 and Sentinel-2 satellites.
+Here is the link for it: https://code.earthengine.google.com/. The script for this is added to the repository.
+* For the ground truths, the Bhuvan platform was used. Here is the link: https://bhuvan-app1.nrsc.gov.in/thematic/thematic/index.php
+* My dataset link: https://drive.google.com/drive/u/1/folders/1ZMlwmboKkTi8bayKyeEBa1XTiHCbLtBa. Though, the data here is not kept in a structured way.
